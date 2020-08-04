@@ -1,0 +1,2 @@
+1. install python-3.8.1 in setup 
+2. run install 
