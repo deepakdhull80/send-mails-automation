@@ -64,24 +64,20 @@ header=rh.read()
 # print(url)
 for email in emails:
 	message=MIMEMultipart("alternative")
-	message['Subject'] = "quiz time"
+	message['Subject'] = header
 	message['To'] = email
 	message['From'] = sender
 
 	html = """\
 	      <body>
+	 <h2>{}</h2> {}<br>	
+	      <p>{}</p>
 	      <br>
-	 {} {}
-			<br>
-			<br>
-			<br>
-	      {}
-	      <br>
-	      <br>
-	                 <a href="{}" style="text-decoration: none;color: white;background-color: black;padding: 10px;border-radius: 5px;margin-top: 10px;">Click Here</a>
+	<center> <a href="{}" style="text-decoration: none;color: white;background-color: black;padding: 10px;border-radius: 5px;margin-top: 10px;">Click Here</a></center>
+		</body></html> """.format(header,date,info,url)
+	
 
-	                </body></html. """.format(header,date,info,url)
-
+	html=html.replace('\n','<br>')
 	part=MIMEText(html,'html')
 	message.attach(part)
 
